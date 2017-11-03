@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Nav } from 'office-ui-fabric-react/lib/Nav';
 import './App.css';
 import Brokerage from './components/Brokerage';
 
 class App extends Component {
-    state = {section: 0}
+    state = {section: "home"}
 
     componentDidMount() {
-        fetch('/api')
-            .then(res => res.json())
-            .then(users => this.setState(users));
     }
     renderMain = () => {
-        if(this.state.section == 0) {
+        if(this.state.section === "home") {
             return(
                 <div>
                     <p> Oiiiiii</p>
                 </div>
             )
         }
-        else if(this.state.section == 1) {
+        else if(this.state.section === "manage") {
             return(
                 <div>
                     <Brokerage />
                     <DefaultButton>Example</DefaultButton>
+                </div>
+            )
+        }
+        else if(this.state.section === "report") {
+            return(
+                <div>
+                    <h1>Report</h1>
                 </div>
             )
         }
@@ -43,11 +47,11 @@ class App extends Component {
                         <div class="ms-Grid-col ms-sm2 ms-md2 ms-lg2">
                             <Nav groups={[{
                                 links: [
-                                    {name: 'Início', key: 'home', onClick: () => {this.setState({section: 0})}, forceAnchor: 'true'},
-                                    {name: 'Gerenciar carteira', key: 'manage', onClick: () => {this.setState({section: 1})}},
-                                    {name: 'Gerar relatórios', key: 'report'}
+                                    {name: 'Início', key: 'home', onClick: () => {this.setState({section: "home"})}, forceAnchor: 'true'},
+                                    {name: 'Gerenciar carteira', key: 'manage', onClick: () => {this.setState({section: "manage"})}, forceAnchor: 'true'},
+                                    {name: 'Gerar relatórios', key: 'report', onClick: () => {this.setState({section: "report"})}, forceAnchor: 'true'}
                                 ]
-                            }]} selectedKey="home"/>
+                            }]} selectedKey={ this.state.section }/>
                         </div>
                         <div class="ms-Grid-col ms-sm10 ms-md10 ms-lg10">
                             { this.renderMain() }

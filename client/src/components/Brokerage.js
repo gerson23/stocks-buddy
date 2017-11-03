@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { TextField, NumberTextField } from 'office-ui-fabric-react/lib/TextField';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 class Brokerage extends Component {
@@ -8,8 +8,8 @@ class Brokerage extends Component {
             <div>
                 <TextField label="Ativo" />
                 <TextField label="Quantidade" />
-                <TextField label="Valor" addonString="R$"/>
-                <TextField label="Taxas/Emolumentos" addonString="R$"/>
+                <TextField type="number" label="Valor" addonString="R$"/>
+                <TextField type="number" label="Taxas/Emolumentos" addonString="R$"/>
                 <div>
                     <DefaultButton primary="true">Salvar corretagem</DefaultButton>
                 </div>
