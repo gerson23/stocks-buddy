@@ -23,9 +23,13 @@
 }
 
 .header {
-    background-color: #0078d7;
+    /*background-color: #0078d7;*/
+    background-color: #333;
     -webkit-box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+}
+.header h1 {
+    color: #eee;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
